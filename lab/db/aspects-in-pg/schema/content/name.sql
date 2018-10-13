@@ -5,7 +5,9 @@
   @statement {id} as known as {name}.
 */
 CREATE TABLE content.name (
-  id system.oid PRIMARY KEY
-    REFERENCES system.entity,
+  id system.oid NOT NULL,
+    CONSTRAINT pk_content_name PRIMARY KEY (id),
+    CONSTRAINT fk_content_name_id FOREIGN KEY (id) REFERENCES system.entity(id),
+
   name text NOT NULL
 ) WITHOUT OIDS ;

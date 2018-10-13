@@ -7,4 +7,5 @@ CREATE SCHEMA system;
 CREATE DOMAIN system.oid AS text;
 
 \i schema/system/entity.sql
+\i schema/system/relation.sql
 \i schema/system/link.sql
