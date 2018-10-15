@@ -9,3 +9,4 @@ CREATE DOMAIN system.oid AS text;
 \i schema/system/entity.sql
 \i schema/system/relation.sql
 \i schema/system/link.sql
+\i schema/system/link_query.sql

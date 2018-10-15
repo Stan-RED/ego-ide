@@ -1,16 +1,16 @@
 /*
   Registration mutation
 
-  mutation Register() {
+  mutation Register($login, $hash) {
     entity {
-      user(login: @login) {
-        password(target: $parent.id, hash: @hash)
+      user(login: $login) {
+        password(target: $parent.id, hash: $hash)
       }
       person(firstName: 'Stan', lastName: 'Ya')
     }
   }
  */
-CREATE OR REPLACE FUNCTION security.user_register_with_password(
+CREATE OR REPLACE FUNCTION security.password_register_user(
   login text,
   hash bytea
 )
@@ -31,7 +31,7 @@ INSERT INTO security.user(id, login) VALUES(_user_id, password_register_user.log
 
 INSERT INTO system.entity(id, owner) VALUES(_password_id, _user_id);
 INSERT INTO system.link VALUES(_password_id, _user_id, 'relation-auth');
-INSERT INTO security.password VALUES(_password_id, '!qa2Ws3eD');
+INSERT INTO security.password VALUES(_password_id, password_register_user.hash);
 
 RETURN _user_id;
 
