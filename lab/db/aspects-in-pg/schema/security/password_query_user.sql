@@ -10,14 +10,14 @@ CREATE OR REPLACE FUNCTION security.password_query_user(
   hash bytea
 )
 RETURNS
-  system.oid
+  mesh.id
 AS $$ BEGIN
   RETURN (SELECT
       "user".id
     FROM security.user
       JOIN (
         security.password
-        JOIN system.link ON (link.id = password.id)
+        JOIN mesh.link ON (link.id = password.id)
       ) AS password ON (password.hash = password_query_user.hash AND password.target = "user".id)
     WHERE
       "user".login = password_query_user.login

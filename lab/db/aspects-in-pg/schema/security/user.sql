@@ -1,10 +1,10 @@
 /*
-  @statement {id} is identified in system as {login}
+  @statement {id} is identified in mesh as {login}
  */
 CREATE TABLE security.user (
-  id system.oid NOT NULL,
+  id mesh.id NOT NULL,
     CONSTRAINT pk_security_user PRIMARY KEY(id),
-    CONSTRAINT fk_security_user_id FOREIGN KEY (id) REFERENCES system.entity(id),
+    CONSTRAINT fk_security_user_id FOREIGN KEY (id) REFERENCES mesh.entity(id),
 
   login text NOT NULL
 ) WITHOUT OIDS;

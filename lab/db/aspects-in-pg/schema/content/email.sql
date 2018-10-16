@@ -4,9 +4,9 @@
   @statement {id} as e-mail is {blob}.
 */
 CREATE TABLE content.email (
-  id system.oid NOT NULL,
+  id mesh.id NOT NULL,
     CONSTRAINT pk_content_email PRIMARY KEY (id),
-    CONSTRAINT fk_content_email_id FOREIGN KEY (id) REFERENCES system.entity(id),
+    CONSTRAINT fk_content_email_id FOREIGN KEY (id) REFERENCES mesh.entity(id),
 
   subject text NOT NULL,
   content text NOT NULL,

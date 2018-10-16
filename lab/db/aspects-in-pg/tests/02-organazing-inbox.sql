@@ -1,6 +1,6 @@
 DO $$
 DECLARE
-  _result system.oid;
+  _result mesh.id;
 BEGIN
   _result = content.inbox_add_email(
     owner := 'user-stan',
@@ -47,7 +47,7 @@ BEGIN
      SELECT
        string_agg(id::text, '|' ORDER BY id)
      FROM
-       system.link_query('user-stan', 'relation-inbox')
+       mesh.link_query('user-stan', 'relation-inbox')
    );
 
   IF _result <> 'email-user-stan-mail-verification|email-user-stan-welcome-to-ide-run|text-user-stan-first-note' THEN

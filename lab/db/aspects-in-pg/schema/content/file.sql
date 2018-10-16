@@ -4,9 +4,9 @@
   @statement {id} as file is {blob}.
 */
 CREATE TABLE content.file (
-  id system.oid NOT NULL,
+  id mesh.id NOT NULL,
     CONSTRAINT pk_content_file PRIMARY KEY (id),
-    CONSTRAINT fk_content_file_id FOREIGN KEY (id) REFERENCES system.entity(id),
+    CONSTRAINT fk_content_file_id FOREIGN KEY (id) REFERENCES mesh.entity(id),
 
   blob bytea NOT NULL,
   mimeType text NULL

@@ -23,7 +23,7 @@ END IF;
 
 END $$ LANGUAGE plpgsql;
 
--- Initial users of the system -------------------------------------------------
+-- Initial users of the mesh -------------------------------------------------
 DO $$
 DECLARE
   _login text;

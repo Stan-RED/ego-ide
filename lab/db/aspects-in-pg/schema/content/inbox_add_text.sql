@@ -6,23 +6,23 @@
   }
  */
 CREATE OR REPLACE FUNCTION content.inbox_add_text(
-  owner system.oid,
-  inbox system.oid,
+  owner mesh.id,
+  inbox mesh.id,
   text text
 )
 RETURNS
-  system.oid
+  mesh.id
 AS $$
 DECLARE
   _subject text;
-  _inbox system.oid;
-  _result system.oid;
+  _inbox mesh.id;
+  _result mesh.id;
 BEGIN
   _subject = LOWER(REGEXP_REPLACE(inbox_add_text.text, '[\s\.]', '-', 'g'));
   _result = 'text-' || inbox_add_text.inbox || '-' || _subject;
   _inbox = 'inbox-' || inbox_add_text.inbox || '-' || _subject;
 
-  INSERT INTO system.entity (id, owner) VALUES(_result, owner);
+  INSERT INTO mesh.entity (id, owner) VALUES(_result, owner);
 
   INSERT INTO content.text (
     id,
@@ -32,7 +32,7 @@ BEGIN
     inbox_add_text.text
   );
 
-  INSERT INTO system.link (
+  INSERT INTO mesh.link (
     id,
     target,
     relation

@@ -5,9 +5,9 @@
   identification methods for the same user.
  */
 CREATE TABLE security.x509 (
-  id system.oid NOT NULL,
+  id mesh.id NOT NULL,
     CONSTRAINT pk_security_x509 PRIMARY KEY(id),
-    CONSTRAINT fk_security_x509_id FOREIGN KEY (id) REFERENCES system.link(id),
+    CONSTRAINT fk_security_x509_id FOREIGN KEY (id) REFERENCES mesh.link(id),
 
   -- TODO: For simplicity just a thumbprint temporarily here.
   thumbprint bytea NOT NULL

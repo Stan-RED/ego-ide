@@ -6,9 +6,9 @@
   limited because my kids have also access to the TV,
  */
 CREATE TABLE security.host (
-  id system.oid NOT NULL,
+  id mesh.id NOT NULL,
     CONSTRAINT pk_security_host PRIMARY KEY(id),
-    CONSTRAINT fk_security_host_id FOREIGN KEY (id) REFERENCES system.link(id),
+    CONSTRAINT fk_security_host_id FOREIGN KEY (id) REFERENCES mesh.link(id),
 
   -- Name of the host or its IP address.
   host text NOT NULL

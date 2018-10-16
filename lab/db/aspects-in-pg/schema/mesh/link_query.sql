@@ -3,16 +3,16 @@
     link(target: $target, relation: $relation) {...}
   }
  */
-CREATE OR REPLACE FUNCTION system.link_query(
-  target system.oid,
-  relation system.oid
+CREATE OR REPLACE FUNCTION mesh.link_query(
+  target mesh.id,
+  relation mesh.id
 )
 RETURNS
-  SETOF system.link
+  SETOF mesh.link
 AS $$ SELECT
   *
 FROM
-  system.link
+  mesh.link
 WHERE
   target = 'user-stan'
   AND relation = 'relation-inbox'
