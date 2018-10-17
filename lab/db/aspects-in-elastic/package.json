@@ -1,0 +1,19 @@
+{
+  "name": "aspects-in-elastic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc test.ts && node test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "elasticsearch": "^15.1.1",
+    "getjson": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/elasticsearch": "^5.0.27"
+  }
+}
