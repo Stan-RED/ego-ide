@@ -1,6 +1,6 @@
 import { IEntity } from "./entity";
 import { ILink } from "./link";
-import { IName } from "./content";
+import { IName } from "./name";
 
 /**
  * Scope.
