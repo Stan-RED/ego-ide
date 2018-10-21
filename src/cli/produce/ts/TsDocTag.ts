@@ -1,5 +1,6 @@
 import { Node, JSDocTagInfo, Symbol } from 'typescript';
-import { TsContext } from './TsContext';
+import { TsHelper, TsContext } from '.';
+import * as ts from "typescript";
 
 /**
 
@@ -25,7 +26,19 @@ export class TsDocTag {
     }
 
     static fromContext<T extends Node>(context: TsContext<T>) {
-        var symbol = context.checker.getSymbolAtLocation(context.node);
-        return TsDocTag.fromSymbol(symbol);
+        let node: Node = context.node;
+
+        if (TsHelper.isNamed(node)) {
+            if (node.name && ts.isIdentifier(node.name)) {
+                node = node.name;
+            }
+        }
+
+        if (node) {
+            var symbol = context.checker.getSymbolAtLocation(node);
+            return TsDocTag.fromSymbol(symbol);
+        }
+
+        return [];
     }
 }

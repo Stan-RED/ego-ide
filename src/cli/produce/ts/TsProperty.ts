@@ -12,12 +12,10 @@ export class TsProperty {
     readonly name: string;
     readonly type: string;
     readonly required: boolean;
-    readonly docs: ReadonlyArray<TsDocTag>;
     readonly auto: boolean;
 
-    constructor(context: TsContext<PropertySignature>) {
+    constructor(public readonly context: TsContext<PropertySignature>) {
         this.property = context.node;
-
         this.name = (this.property.name as Identifier).escapedText as string;
 
         const type = <TypeNode | TypeReferenceType>this.property.type;
@@ -27,10 +25,7 @@ export class TsProperty {
         ;
         
         this.required = !this.property.questionToken;
-
-        var symbol = context.checker.getSymbolAtLocation(this.property.name);
-        this.docs = TsDocTag.fromSymbol(symbol);
-        this.auto = this.docs.some(tag => tag.name == TsSchemaTag.auto);
+        this.auto = this.context.hasDoc(TsSchemaTag.auto);
     }
 
     static Mappings: { [key: number]: string } = {
