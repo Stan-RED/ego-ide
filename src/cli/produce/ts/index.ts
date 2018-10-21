@@ -11,3 +11,5 @@ export * from "./TsContext";
 export * from "./TsProperty";
 export * from "./TsImplementation";
 export * from "./TsInterface";
+export * from "./TsAspect";
+export * from "./TsSchema";
