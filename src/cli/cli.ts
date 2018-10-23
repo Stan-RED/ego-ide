@@ -1,5 +1,4 @@
-import { TsSchema } from "./produce/ts";
-import { PgCodeWriter } from './produce/db/PgCodeWriter';
+import { TsSchema, PgCodeWriter } from "./code";
 import { using } from "../core";
 
 // WORK:
