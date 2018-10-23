@@ -1,6 +1,12 @@
 import { TsSchema } from "./produce/ts";
+import { PgCodeWriter } from './produce/db/PgCodeWriter';
+import { using } from "../core";
 
 // WORK:
 const schema = TsSchema.fromDirectory("../mesh");
-console.info("CLI:", Object.keys(schema.interfaces));
-console.info("CLI:", Object.keys(schema.aspects));
+//console.info("CLI:", Object.keys(schema.interfaces));
+//console.info("CLI:", Object.keys(schema.aspects));
+using(new PgCodeWriter("./test.sql"), writer => {
+    writer.startArtifact("test.sql");
+    writer.write("Hey\n");
+});

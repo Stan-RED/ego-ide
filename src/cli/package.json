@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-pg": "tsc cli.ts && node cli.js --test1=option1 --test2=option2",
+    "build-pg": "tsc && node cli.js --test1=option1 --test2=option2",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
