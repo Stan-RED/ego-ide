@@ -1,6 +1,6 @@
-import { IEntity } from "./entity";
-import { ILink } from "./link";
-import { IName } from "./name";
+import { IEntity } from '../entity';
+import { ILink } from '../link';
+import { IName } from '../name';
 
 /**
  * Scope.

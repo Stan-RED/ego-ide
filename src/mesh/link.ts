@@ -1,14 +1,15 @@
-import { ID, IEntity } from "./entity";
+import { IPart } from "./part";
+import { IPoint } from './point';
 
 /**
 
-    This aspect defines that entity is linked to another one.
+    This is a virtual apsect produced by combination of @see IPart and
+    @see IPoint. The entity implementing this aspect is a part of
+    some source object and points to another. So works like an aggregate.
 
-    @statement {id} is linked with {target} as {relation}
-    @aspect link
+    @statement {of} is linked with {to} as {id}
 
  */
-export interface ILink extends IEntity {
-    target: ID;
-    relation: ID;
+export interface ILink extends IPart, IPoint {
+    
 }
