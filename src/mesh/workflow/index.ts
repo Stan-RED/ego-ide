@@ -1,3 +1,2 @@
 export * from "./inbox";
-export * from "./inbox";
-
+export * from "./scope";
