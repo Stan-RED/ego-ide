@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "workspaces": [
+    "src/core",
+    "src/mesh",
+    "src/api",
+    "src/cli",
+    "specs",
+    "lab/api-server",
+    "lab/pwa-react",
+    "lab/shell"
+  ]
+}
