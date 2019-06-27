@@ -1,0 +1,43 @@
+version: '3'
+services:
+  postgres:
+    container_name: postgres  # optional
+    image: postgres:10.5
+    restart: always
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+    ports:
+    - "5432:5432"
+    volumes:
+    - postgres:/var/lib/postgresql/data
+  pgweb:
+    container_name: pgweb  # optional
+    restart: always  # optional
+    image: sosedoff/pgweb
+    ports:
+    - "8081:8081"
+    links:
+    - postgres:postgres  # my database container is called postgres, not db
+    environment:
+    - DATABASE_URL=postgres://prisma:prisma@postgres:5432/postgres?sslmode=disable
+    depends_on:
+    - postgres  # my database container is called postgres, not db
+  graphql:
+    container_name: pgql
+    restart: always
+    image: graphile/postgraphile
+    depends_on:
+    - postgres
+    environment:
+      # use me
+      DATABASE_URL: postgres://prisma:prisma@postgres:5432/postgres # To be moved to environment file
+    expose:
+    - 5000
+    ports:
+    - 5000:5000
+    command: ["postgraphile", "--connection", "postgres://prisma:prisma@postgres:5432/prisma", "--host", "0.0.0.0", "--port", "5000", "--schema", "test", "--watch"]
+    links:
+    - postgres
+volumes:
+  postgres:
