@@ -1,0 +1,43 @@
+type Entity {
+    uid: ID! @unique
+
+    # Entity
+    workspace: String
+}
+
+type Aspect {
+    entity: Entity!
+    name: String!
+}
+
+type Relation {
+    source: Entity! @relation(name: "EntityToRelationSource")
+    target: Entity! @relation(name: "EntityToRelationTarget")
+    entity: Entity! @relation(name: "EntityToRelation")
+}
+
+type Person {
+    entity: Entity!
+    name: String
+}
+
+type Text {
+    entity: Entity!
+    content: String!
+}
+
+type Topic {
+    entity: Entity!
+    name: String!
+}
+
+type Feed {
+    entity: Entity!
+}
+
+type File {
+    entity: Entity!
+    name: String!
+}
+
+

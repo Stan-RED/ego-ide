@@ -1,0 +1,44 @@
+type Entity {
+    uid: ID! @unique
+    type: ID
+    createdAt: DateTime!
+    deletedAt: DateTime
+}
+
+type Relation {
+    uid: ID! @unique
+    source: ID!
+    target: ID!
+    test: [Entity!]!
+}
+
+type Aspect {
+    uid: ID! @unique
+    name: String!
+}
+
+type Person {
+    uid: ID! @unique
+    firstName: String
+    lastName: String
+}
+
+type Text {
+    uid: ID! @unique
+    content: String!
+}
+
+type Topic {
+    uid: ID! @unique
+    name: String!
+}
+
+type Feed {
+    uid: ID! @unique
+}
+
+type File {
+    uid: ID! @unique
+    name: String!
+}
+

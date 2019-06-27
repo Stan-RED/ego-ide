@@ -1,0 +1,57 @@
+# Ввести скалярный тип
+#scalar OID
+
+interface IObject {
+    oid: String!
+}
+
+interface IHasName {
+    name: String!
+}
+
+interface IRelation  {
+    source: String!
+    target: String!
+}
+
+type Person implements IObject {
+    oid: String!
+
+    firstName: String
+    lastName: String
+}
+
+type Text implements IObject {
+    oid: String!
+
+    content: String!
+}
+
+type Topic implements IObject, IHasName {
+    oid: String!
+    name: String!
+
+}
+
+type Feed implements IObject, IRelation {
+    oid: String!
+    source: String!
+    target: String!
+
+}
+
+type ChatRoom implements IObject, IHasName {
+    oid: String!
+    name: String!
+
+}
+
+type File implements IObject, IHasName {
+    oid: String!
+    name: String!
+
+#    TODO:
+}
+
+# Выборка аттачей для фида
+# Выборка всех фидов в чат-руме

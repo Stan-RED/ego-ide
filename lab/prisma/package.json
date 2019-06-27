@@ -1,0 +1,29 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index-ids.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "TEMP": "https://www.prisma.io/docs/get-started/01-setting-up-prisma-new-database-a002/",
+    "prisma-docker-up": "docker-compose up -d",
+    "prisma-docker-stop": "docker-compose stop",
+    "prisma-docker-remove": "npm run prisma-docker-stop && docker-compose rm -f && docker volume rm src_postgres",
+    "prisma-deploy": "prisma deploy",
+    "prisma-init": "npm run prisma-docker-up && npm run prisma-deploy",
+    "prisma-regenerate-client": "prisma deploy && prisma generate",
+    "sandbox": "prisma delete -f && npm run prisma-regenerate-client && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^0.13.0",
+    "prisma-client-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^16.0.9",
+    "@types/react-native": "^0.57.6"
+    "graphql-tools": "^4.0.0"
+  }
+}
