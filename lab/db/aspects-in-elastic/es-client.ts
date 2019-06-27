@@ -71,11 +71,7 @@ export class EsClient {
                 nested: {
                     path: "link",
                     query: {
-                        bool: {
-                            must: [
-                                { match_phrase: { "link.target": target } }
-                            ]
-                        }
+                        term: { "link.target": target }
                     }
                 }
             }

@@ -7,8 +7,19 @@ const schema = {
     type: "entity",
     body: {
         properties: {
+            admin: { type: "keyword" },
             link: {
-                type: "nested"
+                type: "nested",
+                properties: {
+                    target: { type: "keyword" },
+                    relation: { type: "keyword" }
+                }
+            },
+            password: {
+                type: "nested",
+                properties: {
+                    hash: { type: "keyword" }
+                }
             }
         }
     }
