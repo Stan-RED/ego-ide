@@ -26,7 +26,7 @@ export class PgCodeWriter implements ICodeWriter, IDisposable  {
 
         this._artifacts.push(name);
     }
-    
+
     endArtifact(): void {
         var name = this._artifacts.pop();
 
