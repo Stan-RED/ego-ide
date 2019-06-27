@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var actions_1 = require("../support/actions");
+var cucumber_1 = require("cucumber");
+cucumber_1.Given(/Focus was (\w+)/, actions_1.focusWas);
+cucumber_1.Given(/User (\w+)/, actions_1.givenUser);
+cucumber_1.Given(/Current user is (\w+)/, actions_1.currentUserIs);
+cucumber_1.Given(/(\w+) had (\w+) (\w+)/g, actions_1.userHadAspect);
+cucumber_1.When(/Add (\w+) (\w+)/g, actions_1.add);
+cucumber_1.When(/Select (\w+)/, actions_1.select);
+cucumber_1.Then(/Focus is (\w+)/, actions_1.focusIs);
+cucumber_1.Then(/Widget (\w+) list/, actions_1.widgetList);

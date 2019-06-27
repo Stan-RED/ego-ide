@@ -1,0 +1,8 @@
+.app-tag {
+  display: inline-block;
+  border: 1px solid #000;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  font-size: smaller;
+  border-radius: 0.2rem;
+}

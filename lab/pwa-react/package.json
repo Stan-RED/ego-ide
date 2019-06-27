@@ -1,0 +1,49 @@
+{
+  "name": "@lab/pwa-react",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "ISC",
+  "WORK:": "Installation process: create-react-app => only after full install - add to yarn workspaces => remove node_modules => yarn",
+  "dependencies": {
+    "@craco/craco": "^5.2.4",
+    "@ide/core": "0.0.1",
+    "@ide/mesh": "0.0.1",
+    "@lab/api-server": "0.0.1",
+    "axios": "^0.19.0",
+    "lodash-es": "^4.17.14",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-scripts-ts": "^4.0.8",
+    "react-treeview": "^0.4.7",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
+  },
+  "scripts": {
+    "start": "craco start --workspace --scripts-version react-scripts-ts",
+    "build": "craco build --workspace --scripts-version react-scripts-ts",
+    "pree2e": "tsc -p ./features",
+    "e2e": "cucumber-js features/",
+    "test_del": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/cucumber": "^4.0.7",
+    "@types/express": "^4.17.0",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.136",
+    "@types/node": "^12.6.8",
+    "@types/puppeteer": "^1.12.4",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.1.1",
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0",
+    "jest": "^24.8.0",
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  }
+}
