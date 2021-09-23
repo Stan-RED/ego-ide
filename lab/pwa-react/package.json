@@ -9,7 +9,7 @@
     "@ide/core": "0.0.1",
     "@ide/mesh": "0.0.1",
     "@lab/api-server": "0.0.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.4",
     "lodash-es": "^4.17.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
